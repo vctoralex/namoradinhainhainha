@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TE AMO MINHA GATINHA ❤️</title>
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe4e1 100%);
+            margin: 0;
+            padding: 20px;
+            color: #444;
+            overflow-x: hidden; /* Evita rolagem lateral */
+        }
+
+        /* Animação de fundo (Corações) */
+        .heart-bg {
+            position: fixed; /* Fixo para não rolar com a tela */
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: #ff4d79;
+            opacity: 0;
+            animation: float 6s infinite ease-out;
+            font-size: 20px;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            20% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* --- O CONTEÚDO (CARTA) --- */
+        .container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto; /* Centraliza a coluna */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 10;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* --- BLOCO DE MEMÓRIA (FOTO + LEGENDA) --- */
+        .memory-block {
+            margin: 40px 0;
+            opacity: 0; /* Começa invisível para animar ao rolar */
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        /* Classe que o JS adiciona para aparecer */
+        .memory-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-2deg); /* Um charme tortinho */
+            transition: transform 0.3s;
+        }
+
+        .memory-block:nth-child(even) .photo-frame {
+            transform: rotate(2deg); /* Alterna a inclinação */
+        }
+
+        .photo-frame img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .caption {
+            margin-top: 15px;
+            font-family: 'Brush Script MT', cursive; /* Fonte estilo escrita à mão */
+            font-size: 1.5rem; 
+            color: #d81b60;
+        }
+
+        /* --- ÁREA DO PEDIDO FINAL --- */
+        .final-request {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px dashed #ff80ab;
+        }
+
+        .big-question {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c2185b;
+            margin: 30px 0;
+        }
+
+        /* --- BOTÕES --- */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height: 80px; /* Garante espaço */
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        #btn-yes {
+            background: linear-gradient(45deg, #ff4d79, #ff80ab);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        #btn-no {
+            background-color: #e0e0e0;
+            color: #555;
+            position: relative; /* Começa normal, vira fixed ao fugir */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="heart-bg" id="heart-bg"></div>
+
+    <div class="container">
+        
+        <h1>Para o Amor da Minha Vida</h1>
+
+        <p>
+           Obrigado por me proporcionar toda essa felicidade, meu amor. Você é a melhor coisa que me aconteceu. Quero dividir todo o resto da minha vida com você. Separei algumas fotos suas e nossas que eu adoro. Espero que goste ❤️
+        </p>
+
+        <div class="memory-block">
+            <div class="photo-frame">
+                <img src="./foto1.jpg" alt="Momento 1">
+            </div>
+            <div class="caption">
+               Ó Nois
+            </div>
+        </div>
+       
+        <p>
+           Nosso primeiro beijo kkkkkkkkkkk, mas, de verdade mesmo, você mudou totalmente a forma como eu vejo dois personagens. Isso é só o começo do quanto você mudou e continua mudando a minha vida e o meu dia a dia.
+        </p>
+
+        <div class="memory-block">
+            <div class="photo-frame">
+                <img src="./foto2.jpg" alt="Momento 2">
+            </div>
+            <div class="caption">
+                Seu sorriso é a minha paisagem favorita.
+            </div>
+        </div>
+
+        <p>
+           Essa sua foto com a sua priminha me deixou imaginando o quanto você será uma mãe perfeita, e eu espero ser o melhor e mais perfeito pai e marido que eu puder ser. Não consigo mais imaginar meu futuro se você não estiver nele.
+        </p>
+
+        <div class="memory-block">
+            <div class="photo-frame">
+                <img src="./foto3.jpg" alt="Momento 3">
+            </div>
+            <div class="caption">
+               <p> Essa sua fotinha pequena é a minha preferida kkkkk. Esse seu biquinho me deixa morrendo de fofura</p> 
+                
+                E é por tudo isso que eu preciso te perguntar...
+            </div>
+        </div>
+
+        <div class="final-request">
+            <div class="big-question">
+                Quer namorar comigo?
+            </div>
+
+            <div class="btn-container">
+                <button id="btn-yes">SIM</button>
+                <button id="btn-no">NÃO</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- ANIMAÇÃO DE APARECER AO ROLAR (SCROLL) ---
+        // Isso faz as fotos aparecerem suavemente quando a pessoa desce a tela
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.memory-block').forEach((el) => observer.observe(el));
+
+
+        // --- BOTÃO SIM ---
+        document.getElementById("btn-yes").addEventListener("click", function() {
+            window.location.href = "https://youtube.com/clip/Ugkx0YuDFqaiYxyum-ZdfHxW61E4qHf7ZxAp?si=9n_aPtOCVJ2UniZX";
+        });
+
+        // --- BOTÃO NÃO (FUJÃO INTELIGENTE) ---
+        const btnNo = document.getElementById("btn-no");
+
+        function fugir() {
+            // Transforma o botão em fixo na tela (fixed) para ele poder ir pra qualquer lugar
+            // independente do quanto a pessoa rolou a página
+            btnNo.style.position = "fixed";
+            
+            // Largura e altura da TELA VISÍVEL (Viewport)
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // Tamanho do botão
+            const btnW = btnNo.offsetWidth;
+            const btnH = btnNo.offsetHeight;
+
+            // Gera posição aleatória dentro da tela visível
+            // (Deixando uma margem de 20px)
+            const randomX = Math.floor(Math.random() * (width - btnW - 40)) + 20;
+            const randomY = Math.floor(Math.random() * (height - btnH - 40)) + 20;
+
+            btnNo.style.left = randomX + "px";
+            btnNo.style.top = randomY + "px";
+        }
+
+        btnNo.addEventListener("mouseover", fugir);
+        btnNo.addEventListener("touchstart", fugir); // Funciona no toque do celular
+
+
+        // --- ANIMAÇÃO DOS CORAÇÕES NO FUNDO ---
+        const bg = document.getElementById('heart-bg');
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+            bg.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 6000);
+        }
+        setInterval(createHeart, 400);
+
+    </script>
+</body>
+</html>
